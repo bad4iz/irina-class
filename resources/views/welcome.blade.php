@@ -1,132 +1,1857 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
 
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&family=Comfortaa:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant+Unicase:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=El+Messiri:wght@400;500;600;700&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Neucha&family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ruslan+Display&family=Russo+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css">
+    <link rel="stylesheet" href="http://132245.lp.tobiz.net/css/ion.rangeSlider.min.css" type="text/css">
+
+
+</head>
+<body class="editor_false  lang_ru     not_ie">
+<div class="alerts"></div>
+<div id="wrapper" style="padding-top: 0px;">
+    <div class="hide_line   section             section116  "
+         style="background-color:#ffffff ;  background-image:url(/img/1920x0/null.png);" data-id="1698630"
+         id="b_1698630"><a name="a_1698630"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="section_inner ">
+            <div class="menu-toogler"><i class="fa fa-bars"></i></div>
+            <div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 18px; display: block;"
+                 class="menu1 colorize           hover_menu_border_bottom   ">
+                <ul>
+                    <li class="level0"><a href="#anchor0">О нас</a></li>
+                    <li class="level0"><a href="#anchor1">Новости</a></li>
+                    <li class="level0"><a href="#anchor2">Галерея</a></li>
+                    <li class="level0"><a href="#anchor3">Наши достижения</a></li>
+                    <li class="level0"><a href="#anchor4">Расписание</a></li>
+                    <li class="level0"><a href="#anchor5">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-hcolor="#ff6600" class="  section     no_fontsize         section153    "
+         style="background-color:#ffffff; background-image:url(/img/da37789bce430cd5e1589e45086f68ca.jpg); padding-top:10px; padding-bottom:120px;"
+         data-id="1698626" id="b_1698626"><a name="a_1698626"></a>
+
+        <div class="back_dark"
+             style="opacity:0.61; background:linear-gradient(to bottom, #9f887e 0% ,#212121 100% ) "></div>
+        <div class="dark"></div>
+        <div class="noise" style="background-image:url(/img/pattern_2.png);"></div>
+        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
+        <div class="section_inner all_border    big   w450h60 ">
+            <div class="layer">
+                <div class="title"><p style="text-align:left"><br></p>
+                    <p><span style="font-family:neucha"><span style="font-size:72px">Сайт 2 В&nbsp;класса&nbsp;<span
+                                    style="color:#FFFFFF">школы&nbsp;Нового Века&nbsp;</span></span></span></p>
+                    <p><span style="color:#FF8C00"><strong><span style="font-size:32px"><span
+                                        style="font-family:roboto">_____</span></span></strong></span></p>
+                    <p><br></p>
+                    <p><br></p></div>
+                <div class="sub_title"><p><span style="font-size:20px">Сайт создан для учащихся, родителей, учителей и друзей класса!&nbsp;Здесь вы можете получить необходимую информацию о том, как живет наш класс!&nbsp;Приглашаем к сотрудничеству и обмену информацией. Все новости нашего класса вы можете посмотреть в разделе "Новости"</span>​​​​​​​.&nbsp;
+                    </p></div>
+
+                <div class="btn1 surround  " data-hcolor="#24796b"
+                     style="background-color:#2f9688;  border-radius: 0;   box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ;  font-size: 22px;   ">
+                    Задать вопрос
                 </div>
-            @endif
+                <div class="btn_descr"></div>
+            </div>
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
+            <div class="popup_form">
+                <div class="popup_form_inner">
+                    <div class="popup_form_close"></div>
+                    <div class="popup_form_title">Задайте вопрос учителю</div>
+                    <form action="handler.php" enctype="multipart/form-data" method="post">
+                        <div class="form1"><input type="hidden" name="Название формы" value="">
+                            <div class="field">
+                                <div class="field_title ">Введите имя</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_text"><input type="text" required="required"
+                                                                                 name="Введите имя"
+                                                                                 placeholder="Введите имя"
+                                                                                 autocomplete="off"></div>
                             </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
+                            <div class="field">
+                                <div class="field_title  ">Введите номер телефона</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_phone"><input type="text" required="required"
+                                                                                  pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                  minlength="6"
+                                                                                  name="Введите номер телефона"
+                                                                                  placeholder="xxx-xxx-xxx"
+                                                                                  autocomplete="off"></div>
                             </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
+                            <div class="field">
+                                <div class="field_title ">Задайте вопрос</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_text"><input type="text" name="Задайте вопрос"
+                                                                                 placeholder="placeholder"
+                                                                                 autocomplete="off"></div>
                             </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
+                            <div class="field">
+                                <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                data-hcolor="#f76060" data-action="thanks"
+                                                                data-metrica_event="undefined" data-fb_pixel="undefined"
+                                                                data-vk_pixel="undefined" data-url="" data-amount="0"
+                                                                data-product_name="undefined" value="Отправить"
+                                                                style="background-color:#2f9688;    border-radius: 0; ;  box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ; ;  "
+                                                                autocomplete="off"></div>
                             </div>
                         </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
+                    </form>
+                    <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                     href="/?personal_data=1">Положение</a>
+                        и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных данных.
                     </div>
                 </div>
+            </div>
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
+            <div class="popup_thanks">
+                <div class="popup_thanks_inner">
+                    <div class="popup_thanks_close">X</div>
+                    <div class="popup_thanks_title">Спасибо за заявку!</div>
+                    <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.
+                    </div>
+                </div>
+            </div>
 
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+        </div>
+    </div>
 
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
+    <div data-hcolor="#ff6600" class="hide_line    section           section1318 "
+         style="background-color:#ffffff;  background-image:url('http://132245.lp.tobiz.net/img/null.png'); padding-top:50px; padding-bottom:100px;"
+         data-id="1699077" id="b_1699077"><a name="a_1699077"></a>
+
+
+        <div class="noise" style="background-image:url('http://132245.lp.tobiz.net/img/null.png');"></div>
+        <div class="noise_new " style="background-image:url('http://132245.lp.tobiz.net/img/null.png'); opacity:0.5;"></div>
+        <div class="section_inner all_border width1170">
+            <div class="title"><span style="font-size:28px;"><span style="color:#FF0000">★&nbsp;</span><span
+                        style="color:#FF8C00">★&nbsp;</span><span style="color:#FFD700">★&nbsp;</span><span
+                        style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
+                        style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></div>
+            <div class="sub_title this"><span style="color:#222222"><span style="font-size:54px"><span
+                            style="font-family:neucha">Расписание занятий и кружков</span></span></span></div>
+            <div class="table_wrap table_wrap_0" style="overflow-y: scroll;overflow-x: visible; padding-top: 25px">
+                <div
+                    style="display: flex; display: -webkit-flex; display: -webkit-box; position: absolute; top: 0px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); align-items: center;">
+                    <span
+                        style="display:block; -webkit-transform: rotate(90deg); margin-right: 10px;  transform: rotate(90deg); width: 15px; height: 15px; background:url(/svg/downwards-pointer_1.svg) no-repeat center;  background-size: 100%;"></span><span
+                        class="finger_tap"
+                        style="display:block; width: 20px; height: 20px; background:url(/svg/finger-tap.svg) no-repeat center; background-size: 100%;"></span><span
+                        style="display:block; margin-left: 10px; -webkit-transform: rotate(-90deg);   transform: rotate(-90deg); width: 15px; height: 15px; background:url(/svg/downwards-pointer_1.svg) no-repeat center;  background-size: 100%;"></span>
+                </div>
+                <div class="table five  ">
+                    <div class="line">
+
+
+                        <div class="col col0_title"><strong>Понедельник</strong></div>
+                        <div class="col col1_title"><strong>Вторник</strong></div>
+                        <div class="col col2_title"><strong>Среда</strong></div>
+                        <div class="col col3_title"><strong>Четверг</strong></div>
+                        <div class="col col4_title"><strong>Пятница</strong></div>
+
+
                     </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Русский язык</div>
+                        <div class="col col1">Русский язык</div>
+                        <div class="col col2">Литература</div>
+                        <div class="col col3">Английский язык</div>
+                        <div class="col col4">Математика</div>
+
+
+                    </div>
+
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Математика</div>
+                        <div class="col col1">Математика</div>
+                        <div class="col col2">Русский язык</div>
+                        <div class="col col3">Русский язык</div>
+                        <div class="col col4">Английский язык</div>
+
+
+                    </div>
+
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Литература</div>
+                        <div class="col col1">Математика</div>
+                        <div class="col col2">Математика</div>
+                        <div class="col col3">Русский язык</div>
+                        <div class="col col4">Математика</div>
+
+
+                    </div>
+
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Английский язык</div>
+                        <div class="col col1">Английский язык</div>
+                        <div class="col col2">Английский язык</div>
+                        <div class="col col3">Математика</div>
+                        <div class="col col4">Русский язык</div>
+
+
+                    </div>
+
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Искусствоведение</div>
+                        <div class="col col1">Пение</div>
+                        <div class="col col2">Физкультура</div>
+                        <div class="col col3">Развитие речи</div>
+                        <div class="col col4">Танцевальный класс</div>
+
+
+                    </div>
+
+                    <div class="line arr1">
+
+
+                        <div class="col col0">Доп.занятие</div>
+                        <div class="col col1">Доп.занятие</div>
+                        <div class="col col2">Доп.занятие</div>
+                        <div class="col col3">Доп.занятие</div>
+                        <div class="col col4">Доп.занятие</div>
+
+
+                    </div>
+
+
+                    <div class="popup_thanks">
+                        <div class="popup_thanks_inner">
+                            <div class="popup_thanks_close">X</div>
+                            <div class="popup_thanks_title">Спасибо за заявку!</div>
+                            <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее
+                                время.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+
+    <div data-hcolor="#ff6600"
+         class="hide_line    inner_width           section             transparent_ico section130 dark "
+         style="background-color:#2f9688;  background-image:url('http://132245.lp.tobiz.net/img/null.png'); padding-top:80px; padding-bottom:80px;"
+         data-id="1699073" id="b_1699073"><a name="a_1699073"></a>
+
+
+        <div class="noise" style="background-image:url('http://132245.lp.tobiz.net/img/null.png');"></div>
+        <div class="noise_new " style="background-image:url('http://132245.lp.tobiz.net/img/null.png'); opacity:0.5;"></div>
+        <div class="section_inner all_border  ">
+            <div class="title"><span style="color:#FFFFFF"><span style="font-size:54px"><span
+                            style="font-family:neucha">Достижения учеников</span></span></span></div>
+            <div class="sub_title">​​​​​​​</div>
+            <div class="catalog_items count3 mdicon">
+                <div class="filter_btns ">
+                    <button id="descending" data-sort_dir="to_min">Сначала дорогие</button>
+                    <button id="аscending" data-sort_dir="to_max">Сначала дешевые</button>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-graduation-cap" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF;"><span style="font-size:26px"><span
+                                        style="font-family:neucha">Лучший класс школы&nbsp;</span></span></span></div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения!</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-team-2" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF;"><span style="font-size:26px"><span
+                                        style="font-family:neucha">8 отличников, 15 ударников</span></span></span></div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения&nbsp;</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-certification" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF;"><span style="font-size:26px"><span
+                                        style="font-family:neucha">Ура! 1 место на олимпиаде&nbsp;</span></span></span>
+                        </div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения&nbsp;​​​​​​​</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-badge2" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF"><span style="font-size:26px"><span
+                                        style="font-family:neucha">Лучшая стенгазета</span></span></span></div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения!</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-medal1" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF"><span style="font-size:26px"><span
+                                        style="font-family:neucha">6-ая неделя без двоек&nbsp;</span></span></span>
+                        </div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения&nbsp;​​​​​​​</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:1; background: #2f9688;"></div>
+
+
+                        <div class="mdico1   radius     border_color_like_icon  " style="color:#ffffff;"><i
+                                class="md svg-icon-top-hat" style="color:#ffffff;"></i></div>
+
+                        <div class="title1"><span style="color:#FFFFFF"><span style="font-size:26px"><span
+                                        style="font-family:neucha">Самый чистый класс</span></span></span></div>
+                        <div class="txt1"><span style="color:#FFFFFF;">Поздравляем наших учеников с заслуженной победой в конкурсе талантов. Приглашаем на церемонию награждения&nbsp;</span>
+                        </div>
+
+                        <div class=" hidden btn1 surround  "
+                             style="background-color:#FF6600;  border-radius: 0;        ">Узнать подробнее
+                        </div>
+
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#FF6600;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="extra_info_block_wrapper  ">
+                        <div class="extra_info_block mdicon">
+                            <div class="close">Х</div>
+
+
+                            <div class="right">
+                                <div class="extra_info1"><span style="font-size:28px;">Название товара<br></span>Подробное
+                                    описание продукта.<br>Здесь вы можете расписать:
+                                    <ul>
+                                        <li>свойства товара,<br type="_moz"></li>
+                                        <li>параметры товара,<br type="_moz"></li>
+                                        <li>описание товара,</li>
+                                        <li>наличие на складе,</li>
+                                        <li>цвет,</li>
+                                        <li>количество.<br></li>
+                                    </ul>
+                                    <p>Напишите их тут. И будет у вас не просто сайт, а интернет-магазин. <br></p></div>
+
+                                <div class="btn1x surround " style="background-color:#FF6600; ">Узнать подробнее</div>
+                            </div>
+                            <div class="clear"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup_thanks">
+                    <div class="popup_thanks_inner">
+                        <div class="popup_thanks_close">X</div>
+                        <div class="popup_thanks_title">Спасибо за заявку!</div>
+                        <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее
+                            время.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div data-hcolor="#ff6600" class="hide_line     img_square     section            transparent_ico section1158  "
+         style="background-color:#ffffff;  background-image:url(/img/null.png); padding-top:80px; padding-bottom:50px;"
+         data-id="1698645" id="b_1698645"><a name="a_1698645"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.8;"></div>
+        <div class="section_inner   all_border width1170">
+            <div class="title"><p><span style="font-size:28px"><span style="color:#FF0000">★&nbsp;</span><span
+                            style="color:#FF8C00">★&nbsp;</span><span style="color:#FFD700">★&nbsp;</span><span
+                            style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
+                            style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></p>
+                <p><span style="color:#222222"><span style="font-size:54px"><span style="font-family:neucha">Новости класса и школы&nbsp;</span></span></span>
+                </p>
+                <p><span style="font-size:36px"><span style="color:#FF8C00"><strong><span style="font-family:roboto">____</span></strong></span></span>
+                </p></div>
+            <div class="sub_title"><p><span style="font-size:22px">В нашем классе 36 учеников: 19 девочек и 17 мальчиков.</span><br>
+                </p></div>
+            <div class="catalog_items count3 s200">
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/fba2390142a6bd87bb5da76128af05dd.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>25 сентября 2019 года</strong></div>
+                        <div class="txt1"><span style="color:#000000">Рисунок Татьяны бойковой о весне занял III место в международном творческом конкурсе "Весна идёт-весне дорогу". Молодец!</span>
+                            <div><font color="#000000"><br></font>
+                                <div><span style="color:#000000"></span><span style="color:#000000"><br></span></div>
+                            </div>
+                        </div>
+                        <a href="undefined" class="btn1    " data-hcolor="#24796b"
+                           style="color:#24796b;  border-radius: 0;         ">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/082f6255323da4fd86a1a00464049e45.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>28 сентября 2019 года</strong></div>
+                        <div class="txt1"><p><span style="color:#000000"><span style="font-family:roboto">Ученики нашего класса вместе с родителями приготовили для Кугесьского детского дома-интерната сладкие подарки и канцтовары. МОЛОДЦЫ!!!</span></span>
+                            </p>
+                            <p><br></p></div>
+                        <a href="undefined" class="btn1" data-hcolor="#24796b"
+                           style="color: rgb(36, 121, 107); border-radius: 0px; background-color: transparent;"
+                           data-color="rgb(36, 121, 107)">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/c7c0f7993ca3dc84f9bcb3200bdd1ea7.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>29 сентября 2019 года</strong></div>
+                        <div class="txt1"><span style="color:#000000">Бирюков Николай показал свои знания в теоретических знаниях, приняв участие в конкурсе "Патриот России", организованном Всероссийским образовательным изданием "Педпроспект". Первое место!</span>
+                        </div>
+                        <a href="undefined" class="btn1    " data-hcolor="#24796b"
+                           style="color:#24796b;  border-radius: 0;         ">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/9a27befb5924ae456d619363efaeea6c.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>25 сентября 2019 года</strong></div>
+                        <div class="txt1"><span style="color:#000000">Рисунок Татьяны бойковой о весне занял III место в международном творческом конкурсе "Весна идёт-весне дорогу". Молодец!</span>
+                            <div><font color="#000000"><br></font>
+                                <div><span style="color:#000000"></span><span style="color:#000000"><br></span></div>
+                            </div>
+                        </div>
+                        <a href="undefined" class="btn1" data-hcolor="#24796b"
+                           style="color: rgb(36, 121, 107); border-radius: 0px; background-color: transparent;"
+                           data-color="rgb(36, 121, 107)">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/529637d848d5112dca2b37223416329c.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>28 сентября 2019 года</strong></div>
+                        <div class="txt1"><p><span style="color:#000000"><span style="font-family:roboto">Ученики нашего класса вместе с родителями приготовили для Кугесьского детского дома-интерната сладкие подарки и канцтовары. МОЛОДЦЫ!!!</span></span>
+                            </p>
+                            <p><br></p></div>
+                        <a href="undefined" class="btn1" data-hcolor="#24796b"
+                           style="color: rgb(36, 121, 107); border-radius: 0px; background-color: transparent;"
+                           data-color="rgb(36, 121, 107)">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="arr1 ">
+                    <div class="col_4">
+                        <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+
+
+                        <div class="images">
+                            <div data-link="" class="image1  s200   show_extra_info "><img data-lazy="1" alt=""
+                                                                                           src="/img/b5fc2580f8319f6d1a5c7cef1d03ecda.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="title1"><strong>29 сентября 2019 года</strong></div>
+                        <div class="txt1"><span style="color:#000000">Бирюков Николай показал свои знания в теоретических знаниях, приняв участие в конкурсе "Патриот России", организованном Всероссийским образовательным изданием "Педпроспект". Поздравляем!</span>
+                        </div>
+                        <a href="undefined" class="btn1" data-hcolor="#24796b"
+                           style="color: rgb(36, 121, 107); border-radius: 0px; background-color: transparent;"
+                           data-color="rgb(36, 121, 107)">Читать далее</a>
+
+                        <div class="popup_form">
+                            <div class="popup_form_inner">
+                                <div class="popup_form_close"></div>
+                                <div class="popup_form_title">Оставить заявку</div>
+                                <form action="handler.php" enctype="multipart/form-data" method="post">
+                                    <div class="form1"><input type="hidden" name="Название формы" value="">
+                                        <div class="field">
+                                            <div class="field_title ">Введите имя</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_text"><input type="text"
+                                                                                             required="required"
+                                                                                             name="Введите имя"
+                                                                                             placeholder="Введите имя"
+                                                                                             autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите E-mail</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_email"><input type="email"
+                                                                                              required="required"
+                                                                                              name="Введите E-mail"
+                                                                                              placeholder="mail@mail.ru"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_title  ">Введите номер телефона</div>
+                                            <div class="field_description"></div>
+                                            <div class="field_input field_input_phone"><input type="text"
+                                                                                              required="required"
+                                                                                              pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                              minlength="6"
+                                                                                              name="Введите номер телефона"
+                                                                                              placeholder="xxx-xxx-xxx"
+                                                                                              autocomplete="off"></div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                            data-hcolor="undefined" data-action="thanks"
+                                                                            data-metrica_event="undefined"
+                                                                            data-fb_pixel="undefined"
+                                                                            data-vk_pixel="undefined" data-url=""
+                                                                            data-amount="0"
+                                                                            data-product_name="undefined"
+                                                                            value="Отправить"
+                                                                            style="background-color:#f76060;    border-radius: 0; ;   ;  "
+                                                                            autocomplete="off"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                                 href="/?personal_data=1">Положение</a>
+                                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="popup_thanks">
+                    <div class="popup_thanks_inner">
+                        <div class="popup_thanks_close">X</div>
+                        <div class="popup_thanks_title">Спасибо за заявку!</div>
+                        <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее
+                            время.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div data-hcolor="#ff6600" class="hide_line   section              section164  "
+         style="background-color:#ffffff;  background-image:url(/img/null.png); padding-top:10px; padding-bottom:60px;"
+         data-id="1699057" id="b_1699057"><a name="a_1699057"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="section_inner all_border  ">
+            <div class="col w250h45 pcenter  ">
+
+                <a href="undefined" class="btn1 surround  " target="_blank" data-hcolor="#24796b"
+                   style="background-color:#2f9688;  border-radius: 0;   box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ;  font-size: 18px;   ">Смотреть
+                    все новости</a>
+                <div class="btn_descr"></div>
+            </div>
+            <div class="clear"></div>
+
+            <div class="popup_form">
+                <div class="popup_form_inner">
+                    <div class="popup_form_close"></div>
+                    <div class="popup_form_title">Оставить заявку</div>
+                    <form action="handler.php" enctype="multipart/form-data" method="post">
+                        <div class="form1"><input type="hidden" name="Название формы" value="">
+                            <div class="field">
+                                <div class="field_title ">Введите имя</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_text"><input type="text" required="required"
+                                                                                 name="Введите имя"
+                                                                                 placeholder="Введите имя"
+                                                                                 autocomplete="off"></div>
+                            </div>
+                            <div class="field">
+                                <div class="field_title  ">Введите E-mail</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_email"><input type="email" required="required"
+                                                                                  name="Введите E-mail"
+                                                                                  placeholder="mail@mail.ru"
+                                                                                  autocomplete="off"></div>
+                            </div>
+                            <div class="field">
+                                <div class="field_title  ">Введите номер телефона</div>
+                                <div class="field_description"></div>
+                                <div class="field_input field_input_phone"><input type="text" required="required"
+                                                                                  pattern="[+)( .-]*[0-9]+[0-9+)( .-]*"
+                                                                                  minlength="6"
+                                                                                  name="Введите номер телефона"
+                                                                                  placeholder="xxx-xxx-xxx"
+                                                                                  autocomplete="off"></div>
+                            </div>
+                            <div class="field">
+                                <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                                data-hcolor="undefined" data-action="thanks"
+                                                                data-metrica_event="undefined" data-fb_pixel="undefined"
+                                                                data-vk_pixel="undefined" data-url="" data-amount="0"
+                                                                data-product_name="undefined" value="Заказать"
+                                                                style="background-color:#006699;    border-radius: 0; ;   ; font-size: 16px; "
+                                                                autocomplete="off"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="popup_form_text">Нажимая на кнопку, Вы принимаете <a target="_blank"
+                                                                                     href="/?personal_data=1">Положение</a>
+                        и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных данных.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="popup_thanks">
+                <div class="popup_thanks_inner">
+                    <div class="popup_thanks_close">X</div>
+                    <div class="popup_thanks_title">Спасибо за заявку!</div>
+                    <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hide_line    section    bg_text       section117 "
+         style="background-color:#f8f8f8;  background-image:url(/img/null.png); padding-top:60px; padding-bottom:60px;"
+         data-id="1699171" id="b_1699171"><a name="a_1699171"></a>
+        <div class="back_dark"
+             style="opacity:0.5; background:linear-gradient(to bottom, #ffffff 0% ,#fcfcfc 100% ) "></div>
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
+        <div class="section_inner width1170">
+            <div class="title">
+                <div><span style="font-size:28px"><span style="color:#FF0000">★&nbsp;</span><span style="color:#FF8C00">★&nbsp;</span><span
+                            style="color:#FFD700">★&nbsp;</span><span style="color:#008000">★&nbsp;</span><span
+                            style="color:#00FFFF">★&nbsp;</span><span style="color:#0000CD">★&nbsp;</span><span
+                            style="color:#4B0082">★</span></span><span style="font-size:28px"><span
+                            style="color:#4B0082"><br></span></span></div>
+                <div><span style="color:#222222"><span style="font-size:54px"><span
+                                style="font-family:neucha"></span></span></span><span style="color:#222222"><span
+                            style="font-size:54px"><span style="font-family:neucha">Информация о нас&nbsp;</span></span></span>
+                </div>
+            </div>
+            <div class="sub_title"><br></div>
+
+            <div class="arr1">
+
+                <div data-link="" class="col_2   image1  border   image_size_840x1200  border1  "><img data-lazy="1"
+                                                                                                       alt=""
+                                                                                                       src="/img/section117_image1_2.jpg">
+                </div>
+
+                <div class="col_2">
+                    <div class="descr1"><p><span style="font-size:20px"></span><span style="font-size:22px">Наш классный руководитель Екатерина Владимировна</span><span
+                                style="font-size:20px"></span></p></div>
+                    <div class="txt1"><span style="color:#333333"><strong></strong></span>
+                        <ul>
+                            <li>Родилась в г. Чебоксары.</li>
+                            <li>В 2004 г. закончила МОУ "СОШ № 17"</li>
+                            <li>Образование: ЧГУ им. И.Н. Ульянова, выпуск 2009 года.</li>
+                            <li>Специальность: филолог. Учитель русского языка &nbsp;и&nbsp;&nbsp; литературы.</li>
+                            <li>В 2012 году прошла профессиональную переподготовку&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                в &nbsp;ЧГПУ им. И.Я. Яковлева. Имею право на ведение профессиональной деятельности в
+                                сфере истории и методики обучения и воспитания младших школьников.
+                            </li>
+                            <li>Свой педагогический стаж начала в "МДОУ №11"Ручеек"</li>
+                            <li>В 2010 году защитилась на 1 категорию по специальности "Воспитатель"</li>
+                            <li>С 2011 года работаю в&nbsp;&nbsp; МБОУ "СОШ № 17".</li>
+                            <li>В 2013 году защитилась за 1 категорию.</li>
+                            <li>&nbsp;Работаю по программе «ШКОЛА 2100"</li>
+                        </ul>
+                        <span style="color:#333333"></span></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hide_line  section    square        section143     "
+         style="background-color:#ffffff;  background-image:url(/img/null.png); padding-top:80px; padding-bottom:60px;"
+         data-id="1699047" id="b_1699047"><a name="a_1699047"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.9;"></div>
+        <div class="section_inner width1170">
+            <div class="title"><p><span style="color:#222222"><span style="font-size:54px"><span
+                                style="font-family:neucha">Фотографии нашего класса&nbsp;</span></span></span><br><span
+                        style="font-size:36px"><span style="color:#FF8C00"><strong><span
+                                    style="font-family:roboto">____</span></strong></span></span></p></div>
+            <div class="sub_title"><p><span style="font-size:22px">Жизнь нашего класса в фотографиях</span></p></div>
+            <div class="images">
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/f307b39eaa11b01972e9fa94e38ac507.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/bd11f00a0f8a0c30c76819bc9525a84b.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Выступление в детском саду</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/3ecba3df4c107c839c1a05c59c1c166d.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Калейдоскоп талантов</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/d7e39fa30ed765745c84e97fe7ad3b5b.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/a25ea8de08ff2632cbd81ca016af23be.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Выступление в детском саду</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/fd2e4ca2f0b3b124a8f6a150ffee39d2.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Калейдоскоп талантов</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/1466176500d2614f67207eea17cdd3d1.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/4084a8c4c11f9a27cb305a0762067d68.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Выступление в детском саду</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="image_box img_zoom   image_size_600x450 arr1 ">
+                    <img data-lazy="1" alt="" src="/img/e29ac2b96e0d65d17250944f39d3b6cb.jpg">
+                    <div class="overlay_image_box    " data-link="" data-link-target="">
+                        <div class="overlay_image_title">Калейдоскоп талантов</div>
+                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div data-hcolor="#ff6600" class="hide_line  section          section1306  "
+         style="background-color:#ffffff;  background-image:url(/img/image_10062.jpg); padding-top:80px; padding-bottom:80px;"
+         data-id="1699155" id="b_1699155"><a name="a_1699155"></a>
+        <div class="back_dark"
+             style="opacity:0.9; background:linear-gradient(to bottom, #ffffff 0% ,#ffffff 100% ) "></div>
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
+        <div class="section_inner ">
+
+
+            <div class="form_wrapper  " style="color:#ffffff; border-color:#ffffff;">
+                <div class="form_bg_color" style="opacity:0.9;"></div>
+                <div class="form_title"><span style="color:#444444;"><strong><span style="font-size:28px"><span
+                                    style="font-family:roboto">Задайте вопрос классному руководителю&nbsp;</span></span></strong></span>
+                </div>
+                <div class="form1">
+                    <form action="handler.php" enctype="multipart/form-data" method="post">
+
+                        <input type="hidden" name="Название формы" value="">
+
+                        <div class="field">
+                            <div class="field_title ">Введите имя</div>
+                            <div class="field_description"></div>
+                            <div class="field_input field_input_text"><input type="text" required="required"
+                                                                             name="Введите имя"
+                                                                             placeholder="Введите имя"
+                                                                             autocomplete="off"></div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field_title ">Задайте ваш вопрос</div>
+                            <div class="field_description"></div>
+                            <div class="field_input field_input_text"><input type="text" name="Задайте ваш вопрос"
+                                                                             placeholder="Напишите что-нибудь"
+                                                                             autocomplete="off"></div>
+                        </div>
+
+                        <div class="field">
+                            <div class="field_input"><input type="submit" class="submit_btn surround"
+                                                            data-hcolor="#24796b" data-action="thanks"
+                                                            data-metrica_event="undefined" data-fb_pixel="undefined"
+                                                            data-vk_pixel="undefined" data-url="" data-amount="0"
+                                                            data-product_name="undefined" value="Отправить"
+                                                            style="background-color:#2f9688;    border-radius: 0; ;  box-shadow: 0; ;  "
+                                                            autocomplete="off"></div>
+                        </div>
+
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div class="form_text">Нажимая на кнопку, Вы принимаете <a target="_blank" href="/?personal_data=1">Положение</a>
+                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных данных.
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="popup_thanks">
+                <div class="popup_thanks_inner">
+                    <div class="popup_thanks_close">X</div>
+                    <div class="popup_thanks_title">Спасибо за заявку!</div>
+                    <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hide_line   section           section165  "
+         style="background-color:#ffffff;  background-image:url(/img/null.png);" data-id="1699153"
+         id="b_1699153"><a name="a_1699153"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="section_inner   ">
+            <div class="title">
+                <div><span style="font-size:54px"></span><span style="font-size:28px"><span style="color:#FF0000">★&nbsp;</span><span
+                            style="color:#FF8C00">★&nbsp;</span><span style="color:#FFD700">★&nbsp;</span><span
+                            style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
+                            style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></div>
+                <div><span style="color:#222222;"><span style="font-family:neucha;"><span style="font-size:54px">Адрес нашей школы</span></span></span>
+                </div>
+            </div>
+            <div class="sub_title"><span style="font-size:36px"><span style="color:#FF8C00"><strong><span
+                                style="font-family:roboto">____</span></strong></span></span></div>
+            <div class="map_wrapper filter_on">
+                <div class="map">
+                    <div class="map_inner" style="">
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A91e6a6610108705f9cbe08909339f950cdd454e2695076a6d982ed39e392f0a3&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="text_block " style="background-color: #fdfdfd ">
+                <div class="text"><span style="font-size:24px;"><span style="font-family:montserrat;"><strong>Контактная информация:</strong></span></span><br><br>
+{{--                    <div>Чебоксары, школьный проезд 1.<br>E-mail: Test@yandex.ru<br>Телефон: 8 800 300 06 00 отдела--}}
+{{--                        продаж<br>Телефон: 8 800 340 06 00 отдела сбыта<br>Контактное лицо: Степанов В.И.--}}
+{{--                    </div>--}}
+                </div>
+                <div class="txt1">Присоединяйтесь к нам в социальных сетях!</div>
+                <div class="social_icons ">
+                    <a target="_blank" class="sn sn-vk  link_vk" href=""></a>
+                    <a target="_blank" class="sn sn-ins  link_ins" href=""></a>
+                    <a target="_blank" class="sn sn-whatsup  link_whatsup" href=""></a>
+                    <a target="_blank" class="sn sn-fb  link_fb" href=""></a>
+                    <a target="_blank" class="sn sn-youtube  link_youtube" href=""></a>
+                    <a target="_blank" class="sn sn-o  link_o" href=""></a>
+                    <a target="_blank" class="sn sn-viber  link_viber" href=""></a>
+                    <a target="_blank" class="sn sn-tg  link_tg" href=""></a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="hide_line   section            section101  "
+         style="background-color:#f3f3f3;  background-image:url(/img/null.png);" data-id="1699175"
+         id="b_1699175"><a name="a_1699175"></a>
+
+
+        <div class="noise" style="background-image:url(/img/null.png);"></div>
+        <div class="section_inner width1170">
+
+
+            <div class="logo_text"><strong>Школа Нового Века</strong></div>
+
+
+            <div class="text1">Сайт 2 В класса школы Нового Века</div>
+            <div class="phone-and-address">
+                <div class="phone1 ">8(8453)54-45-50</div>
+                <div class="address1"> Саратовская область, г. Энгельс, ул.Лесозаводская, д.2в</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+
+
+{{--    <script>--}}
+
+{{--        (function(){--}}
+
+
+{{--            var resources_css = [--}}
+{{--                'https://fonts.googleapis.com/css?family=Roboto',--}}
+{{--                //'https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i|Cormorant+Infant:300,300i,400,400i,500,500i,600,600i,700,700i|Cormorant+SC:300,400,500,600,700|Cormorant+Unicase:300,400,500,600,700|EB+Garamond:400,400i,500,500i,600,600i,700,700i,800,800i|El+Messiri:400,500,600,700|Forum|Jura:300,400,500,600,700|Lobster|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Neucha|Open+Sans+Condensed:300,300i,700|PT+Sans+Narrow:400,700|PT+Sans:400,400i,700,700i|Philosopher:400,400i,700,700i|Playfair+Display+SC:400,400i,700,700i,900,900i|Poiret+One|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Ruslan+Display|Russo+One|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext',--}}
+{{--                'https://fonts.googleapis.com/css2?family=Audiowide&family=Comfortaa:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant+Unicase:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=El+Messiri:wght@400;500;600;700&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Neucha&family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ruslan+Display&family=Russo+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap',--}}
+{{--                //'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',--}}
+{{--                'https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',--}}
+{{--                'https://fonts.googleapis.com/icon?family=Material+Icons',--}}
+{{--                '/css/ion.rangeSlider.min.css',--}}
+
+
+
+{{--            ];--}}
+{{--            var resource = [];--}}
+{{--            _.each(resources_css, function(element,index){--}}
+{{--                console.log(element)--}}
+{{--                resource[index] = document.createElement('link');--}}
+{{--                resource[index].setAttribute("rel", "stylesheet");--}}
+{{--                resource[index].setAttribute("href",element);--}}
+{{--                resource[index].setAttribute("type","text/css");--}}
+
+
+
+
+{{--                var head = document.getElementsByTagName('head')[0];--}}
+{{--                head.appendChild(resource[index]);--}}
+
+{{--            })--}}
+
+
+
+
+
+{{--        })();--}}
+
+
+
+
+{{--    </script>--}}
+
+
+
+
+{{--    <script src="/js/swipe.js"></script>--}}
+{{--    <script src="/js/mask.min.js"></script>--}}
+{{--    <script src="/js/chart.min.js"></script>--}}
+{{--    <script src="/js/ion.rangeSlider.min.js"></script>--}}
+{{--    <script src="/js/lazyload.min.js"></script>--}}
+
+
+<div class="betternet-wrapper"></div>
+<div id="wt-sky-root"></div>
+</body>
 </html>
