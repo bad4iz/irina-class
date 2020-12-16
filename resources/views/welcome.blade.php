@@ -1540,7 +1540,7 @@
                 </div>
 
                 <div class="col_2">
-                    <div class="descr1"><p><span style="font-size:20px"></span><span style="font-size:22px">Наш классный руководитель Екатерина Владимировна</span><span
+                    <div class="descr1"><p><span style="font-size:20px"></span><span style="font-size:22px">Наш классный руководитель Ольга Ивановна</span><span
                                 style="font-size:20px"></span></p></div>
                     <div class="txt1"><span style="color:#333333"><strong></strong></span>
                         <ul>
