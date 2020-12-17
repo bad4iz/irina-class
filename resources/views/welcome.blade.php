@@ -47,13 +47,13 @@
     </div>
 
     <div data-hcolor="#ff6600" class="  section     no_fontsize         section153    "
-         style="background-color:#ffffff; background-image:url(/img/da37789bce430cd5e1589e45086f68ca.jpg); padding-top:10px; padding-bottom:120px;"
+         style="background-color:#ffffff; background-image:url(/img/class_2.jpg); padding-top:10px; padding-bottom:120px;"
          data-id="1698626" id="b_1698626"><a name="a_1698626"></a>
 
         <div class="back_dark"
              style="opacity:0.61; background:linear-gradient(to bottom, #9f887e 0% ,#212121 100% ) "></div>
         <div class="dark"></div>
-        <div class="noise" style="background-image:url(/img/class_2.jpg);"></div>
+        <div class="noise" style="background-image:url(/img/pattern_2.png); opacity: .3;"></div>
         <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
         <div class="section_inner all_border    big   w450h60 ">
             <div class="layer">
@@ -1533,7 +1533,7 @@
 
                 <div data-link="" class="col_2   image1  border   image_size_840x1200  border1  "><img data-lazy="1"
                                                                                                        alt=""
-                                                                                                       src="/img/section117_image1_2.jpg">
+                                                                                                       src="/img/teacher_1.jpg">
                 </div>
 
                 <div class="col_2">
@@ -1656,7 +1656,7 @@
     </div>
 
     <div data-hcolor="#ff6600" class="hide_line  section          section1306  "
-         style="background-color:#ffffff;  background-image:url(/img/image_10062.jpg); padding-top:80px; padding-bottom:80px;"
+         style="background-color:#ffffff;  background-image:url(/img/class_1.jpg); height: 912px"
          data-id="1699155" id="b_1699155"><a name="a_1699155"></a>
         <div class="back_dark"
              style="opacity:0.9; background:linear-gradient(to bottom, #ffffff 0% ,#ffffff 100% ) "></div>
