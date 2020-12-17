@@ -53,7 +53,7 @@
         <div class="back_dark"
              style="opacity:0.61; background:linear-gradient(to bottom, #9f887e 0% ,#212121 100% ) "></div>
         <div class="dark"></div>
-        <div class="noise" style="background-image:url(/img/pattern_2.png);"></div>
+        <div class="noise" style="background-image:url(/img/class_2.jpg);"></div>
         <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
         <div class="section_inner all_border    big   w450h60 ">
             <div class="layer">
@@ -67,11 +67,8 @@
                 <div class="sub_title"><p><span style="font-size:20px">Сайт создан для учащихся, родителей, учителей и друзей класса!&nbsp;Здесь вы можете получить необходимую информацию о том, как живет наш класс!&nbsp;Приглашаем к сотрудничеству и обмену информацией. Все новости нашего класса вы можете посмотреть в разделе "Новости"</span>​​​​​​​.&nbsp;
                     </p></div>
 
-                <div class="btn1 surround  " data-hcolor="#24796b"
-                     style="background-color:#2f9688;  border-radius: 0;   box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ;  font-size: 22px;   ">
-                    Задать вопрос
-                </div>
-                <div class="btn_descr"></div>
+
+
             </div>
 
             <div class="popup_form">
