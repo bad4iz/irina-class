@@ -46,7 +46,7 @@ class NewsController extends Controller
             'title' => 'required',
         ]);
 
-        $preview = $request->file('preview')->store('preview');
+        $preview = $request->file('preview')->store('images',);
 
         News::create([
             'title' => request('title'),
