@@ -9,20 +9,35 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $articles = Article::all();
-        return view('index', ['articles' => $articles]);
+        return view('article.index', ['articles' => $articles]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('create');
+        return view('article.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-//dd($request->all());
         $validatedData = $request->validate([
             'preview' => 'image|max:1024',
             'intro' => 'required',
@@ -41,13 +56,51 @@ class ArticleController extends Controller
             'intro' => request('intro'),
         ]);
 
-        return redirect()->route('all');
+        return redirect()->route('article.index');
     }
 
-    public function destroy(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //
+    }
 
-        $id = request('id');
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $article = Article::find($id);
 
         $attachs = DB::table('trix_attachments')->where('attachable_id', $id)->get();
@@ -60,6 +113,6 @@ class ArticleController extends Controller
         $article->trixAttachments()->delete();
         $article->trixRichText()->delete();
         $article->delete();
-        return redirect()->route('all');
+        return redirect()->route('article.index');
     }
 }

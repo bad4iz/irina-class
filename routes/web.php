@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/articles',[ArticleController::class, 'index'])->name('all');
-Route::get('/create',[ArticleController::class,'create'])->name('create');
-Route::post('/create',[ArticleController::class, 'store'])->name('store');
-Route::delete('/destroy',[ArticleController::class, 'destroy'])->name('destroy');
+Route::resource('article', ArticleController::class);
 
 Route::get('/', function () {
     return view('welcome');

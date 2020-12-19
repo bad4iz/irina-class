@@ -22,7 +22,7 @@
     </div>
 @endif
 <div class=" position-ref full-height">
-    <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
         @csrf
         <label for="title">Вводный текст</label><br/>
         <input type="file" name="preview"><br/>
