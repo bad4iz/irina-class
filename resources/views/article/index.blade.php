@@ -18,26 +18,26 @@
             <h1>{{ $article->id }}</h1>
             <h1>{{ $article->title }}</h1>
 
-{{--        --}}
-{{--            @trix($article, 'content')--}}
+            {{--        --}}
+            {{--            @trix($article, 'content')--}}
 
-{{--            {!! $article->trix('content') !!}--}}
+            {{--            {!! $article->trix('content') !!}--}}
 
-{{--            {!! app('laravel-trix')->make($article, 'content') !!}--}}
-        {{ asset($article->preview) }}
+            {{--            {!! app('laravel-trix')->make($article, 'content') !!}--}}
+            {{ asset($article->preview) }}
             <img src="{{$article->preview}}" alt="{{ $article->title }}" width="500" height="600">
             <img src="{{ asset($article->preview) }}" alt="{{ $article->title }}" width="500" height="600">
             <div>{{ $article->title }}</div>
             <div>{{ $article->title }}</div>
             <div>{{ $article->title }}</div>
-{{--            @trix($article, 'content', ['disk' => 'local'])--}}
+            {{--            @trix($article, 'content', ['disk' => 'local'])--}}
             {!! $article->trixRichText->first()->content !!}
 
 
-            <form    method="POST" action="{{ route('destroy', ['id'=>$article->id]) }}">
+            <form method="POST" action="{{ route('article.destroy', $article) }}">
                 @csrf
                 {{ method_field('DELETE') }}
-                <button  role="button" type="submit"
+                <button role="button" type="submit"
                         class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5 m-l-10"
                         value="Удалить">Удалить
                 </button>
