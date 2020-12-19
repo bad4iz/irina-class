@@ -172,11 +172,11 @@
                     <div class="line arr1">
 
 
-                        <div class="col col0">Русский язык</div>
-                        <div class="col col1">Русский язык</div>
-                        <div class="col col2">Литература</div>
-                        <div class="col col3">Английский язык</div>
-                        <div class="col col4">Математика</div>
+                        <div class="col col0">Англ яз</div>
+                        <div class="col col1">Окр мир</div>
+                        <div class="col col2">Чтение</div>
+                        <div class="col col3">Чтение</div>
+                        <div class="col col4">Физ-ра</div>
 
 
                     </div>
@@ -186,9 +186,9 @@
 
                         <div class="col col0">Математика</div>
                         <div class="col col1">Математика</div>
-                        <div class="col col2">Русский язык</div>
-                        <div class="col col3">Русский язык</div>
-                        <div class="col col4">Английский язык</div>
+                        <div class="col col2">Англ яз</div>
+                        <div class="col col3">математика</div>
+                        <div class="col col4">Окр мир</div>
 
 
                     </div>
@@ -196,11 +196,11 @@
                     <div class="line arr1">
 
 
-                        <div class="col col0">Литература</div>
-                        <div class="col col1">Математика</div>
+                        <div class="col col0">Физ-ра</div>
+                        <div class="col col1">Русский язык</div>
                         <div class="col col2">Математика</div>
-                        <div class="col col3">Русский язык</div>
-                        <div class="col col4">Математика</div>
+                        <div class="col col3">Риторика</div>
+                        <div class="col col4">Русс яз</div>
 
 
                     </div>
@@ -208,11 +208,11 @@
                     <div class="line arr1">
 
 
-                        <div class="col col0">Английский язык</div>
-                        <div class="col col1">Английский язык</div>
-                        <div class="col col2">Английский язык</div>
-                        <div class="col col3">Математика</div>
-                        <div class="col col4">Русский язык</div>
+                        <div class="col col0">Русский язык</div>
+                        <div class="col col1">Чтение</div>
+                        <div class="col col2">Русский язык</div>
+                        <div class="col col3">Музыка</div>
+                        <div class="col col3">Род.яз\Лит.рус.яз</div>
 
 
                     </div>
@@ -220,27 +220,26 @@
                     <div class="line arr1">
 
 
-                        <div class="col col0">Искусствоведение</div>
-                        <div class="col col1">Пение</div>
-                        <div class="col col2">Физкультура</div>
-                        <div class="col col3">Развитие речи</div>
-                        <div class="col col4">Танцевальный класс</div>
+                        <div class="col col0">Чтение</div>
+                        <div class="col col1">Ритмика</div>
+                        <div class="col col2">ИЗО</div>
+                        <div class="col col2">*</div>
+                        <div class="col col2">Технология</div>
 
 
                     </div>
 
                     <div class="line arr1">
 
+                        <div class="col col0 time">8:00-12:20</div>
+                        <div class="col col1 time">8:00-12:20</div>
+                        <div class="col col0 time">8:00-12:20</div>
+                        <div class="col col1 time">8:00-11:20</div>
+                        <div class="col col0 time" >8:00-12:20</div>
 
-                        <div class="col col0">Доп.занятие</div>
-                        <div class="col col1">Доп.занятие</div>
-                        <div class="col col2">Доп.занятие</div>
-                        <div class="col col3">Доп.занятие</div>
-                        <div class="col col4">Доп.занятие</div>
 
 
                     </div>
-
 
                     <div class="popup_thanks">
                         <div class="popup_thanks_inner">
@@ -1663,64 +1662,7 @@
 
         <div class="noise" style="background-image:url(/img/null.png);"></div>
         <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
-        <div class="section_inner ">
-
-
-            <div class="form_wrapper  " style="color:#ffffff; border-color:#ffffff;">
-                <div class="form_bg_color" style="opacity:0.9;"></div>
-                <div class="form_title"><span style="color:#444444;"><strong><span style="font-size:28px"><span
-                                    style="font-family:roboto">Задайте вопрос классному руководителю&nbsp;</span></span></strong></span>
-                </div>
-                <div class="form1">
-                    <form action="handler.php" enctype="multipart/form-data" method="post">
-
-                        <input type="hidden" name="Название формы" value="">
-
-                        <div class="field">
-                            <div class="field_title ">Введите имя</div>
-                            <div class="field_description"></div>
-                            <div class="field_input field_input_text"><input type="text" required="required"
-                                                                             name="Введите имя"
-                                                                             placeholder="Введите имя"
-                                                                             autocomplete="off"></div>
-                        </div>
-
-                        <div class="field">
-                            <div class="field_title ">Задайте ваш вопрос</div>
-                            <div class="field_description"></div>
-                            <div class="field_input field_input_text"><input type="text" name="Задайте ваш вопрос"
-                                                                             placeholder="Напишите что-нибудь"
-                                                                             autocomplete="off"></div>
-                        </div>
-
-                        <div class="field">
-                            <div class="field_input"><input type="submit" class="submit_btn surround"
-                                                            data-hcolor="#24796b" data-action="thanks"
-                                                            data-metrica_event="undefined" data-fb_pixel="undefined"
-                                                            data-vk_pixel="undefined" data-url="" data-amount="0"
-                                                            data-product_name="undefined" value="Отправить"
-                                                            style="background-color:#2f9688;    border-radius: 0; ;  box-shadow: 0; ;  "
-                                                            autocomplete="off"></div>
-                        </div>
-
-                        <div class="clear"></div>
-                    </form>
-                </div>
-                <div class="form_text">Нажимая на кнопку, Вы принимаете <a target="_blank" href="/?personal_data=1">Положение</a>
-                    и <a target="_blank" href="/?personal_data=2">Согласие</a> на обработку персональных данных.
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div class="popup_thanks">
-                <div class="popup_thanks_inner">
-                    <div class="popup_thanks_close">X</div>
-                    <div class="popup_thanks_title">Спасибо за заявку!</div>
-                    <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
     </div>
 
     <div class="hide_line   section           section165  "
