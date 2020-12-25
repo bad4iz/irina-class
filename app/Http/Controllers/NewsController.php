@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
@@ -63,12 +65,17 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\News  $new
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show(News $new)
     {
-        //
+        $deleteAccess = false;
+        if (Gate::allows('delete-new')) {
+            $deleteAccess = true;
+        }
+
+        return view('new.show', compact('new','deleteAccess'));
     }
 
     /**

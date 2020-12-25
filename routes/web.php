@@ -19,3 +19,7 @@ Route::resource('article', ArticleController::class);
 Route::resource('new', NewsController::class);
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
