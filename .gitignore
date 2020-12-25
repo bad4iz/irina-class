@@ -1,9 +1,7 @@
 /node_modules
 /public/hot
-<<<<<<< HEAD
+
 /public/
-=======
->>>>>>> 1c6c91db99b3df78e700937669775bc484367465
 /public/storage
 /storage/*.key
 /vendor

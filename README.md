@@ -6,8 +6,13 @@ Kodeine / Laravel-ACL https://github.com/kodeine/laravel-acl
 
 
 
+для бегета первая развертка
+```bash
+ln -s public public_html
+```
 
 ```$xslt
+
  composer-php7.3 install
 
  php7.3 artisan key:generate
