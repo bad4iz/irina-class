@@ -1,46 +1,62 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
-    <title>Laravel</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <!-- Styles -->
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Создание новости')   ])
+
+@section('content')
+
     @trixassets
-</head>
-<body>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="card mx-auto" style="max-width: 1200px; ">
+        <div class="card-header">
+            <h4 class="card-title">Создание новости</h4>
+            <p class="category">заполните поля</p>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="{{ route('new.store') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="">
+                    <label for="file">Добавьте изображение для превью</label>
+                    <input id="file" type="file" name="preview">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input maxlength="50" type="text" name="title" id="title" class="form-control"
+                           placeholder="введите текст заголовока">
+                </div>
+
+                <div class="form-group ">
+                    <label for="data">дата события</label>
+                    <input type="date" value="{{date('Y-m-d') }}" name="event_date" id="data" class="form-control">
+                </div>
+
+                <div class="form-group ">
+                    <label for="intro">Вводный текст</label>
+                    <textarea id="intro" class="form-control" name="intro" maxlength="250"
+                              placeholder="введите вводный текст "></textarea>
+                </div>
+
+                <div class="form-group ">
+                    <label for="">Статья</label>
+                    @trix(\App\News::class, 'content')
+                </div>
+
+
+                <div class="text-right">
+
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+
+
     </div>
-@endif
-<div class=" position-ref full-height">
-    <form method="POST" action="{{ route('new.store') }}" enctype="multipart/form-data">
-        @csrf
-        <label for="title">Вводный текст</label><br/>
-        <input type="file" name="preview"><br/>
-
-        <label for="title">Заголовок</label><br/>
-        <input type="text" name="title" id="title"><br/>
-
-        <label for="title">дата события</label><br/>
-        <input type="date" value="{{date('Y-m-d') }}" name="event_date" id="title"><br/>
-
-        <label for="title">Вводный текст</label><br/>
-        <textarea name="intro" id="title"></textarea><br/>
-
-        @trix(\App\News::class, 'content')
-        <input type="submit">
-    </form>
-
-
-</div>
-</body>
-</html>
+@endsection
