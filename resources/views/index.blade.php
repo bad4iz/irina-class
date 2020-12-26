@@ -308,34 +308,24 @@
             <div class="catalog_items count3 s200">
 
                 @foreach ($news as $new)
-                    <div class="arr1 ">
-                        <div class="col_4">
-                            <div class="col_bg" style="opacity:0.5; background: #f8f8f8;"></div>
+                    <div class="card card-blog m-3" style="width: 300px">
+                        <div class="card-header card-header-image">
 
-
-                            <div class="images">
-                                <div data-link="" class="image1  s200   show_extra_info ">
-                                    <img data-lazy="1" src="{{$new->preview}}" alt="{{$new->title}}">
-                                </div>
-
-                            </div>
-
-                            <div class="title1"><strong>{{$new->title}}</strong></div>
-                            <div class="txt1">
-                            <span style="color:#000000">
-                              {{$new->intro}}
-                            </span>
-                                <div>
-                                    <div><span style="color:#000000"></span><span style="color:#000000"><br></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{route('new.show', $new->id)}}" class="btn1" data-hcolor="#24796b"
-                               style="color:#24796b;  border-radius: 0;         ">Читать далее</a>
+                            <img class="img" src="{{$new->preview}}" alt="{{$new->title}}">
 
                         </div>
-                    </div>
+                        <div class="card-body">
+                            <h3 class="card-category">{{$new->title}}</h3>
+                            <p class="card-description">
+                                {{$new->intro}}
+                            </p>
 
+                        </div>
+                        <div class="card-footer flex-row-reverse">
+                            <a href="{{route('new.show', $new->id)}}" role="button" type="button"
+                               class="btn btn-success">Читать далее</a>
+                        </div>
+                    </div>
                 @endforeach
 
             </div>

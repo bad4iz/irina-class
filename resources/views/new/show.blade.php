@@ -1,6 +1,12 @@
 @extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', ])
 
 @section('content')
+    <style>
+        img{
+            width: 800px;
+            height: 100%;
+        }
+    </style>
     <h1 style="color:#222222; font-size:54px; font-family:neucha; text-align: center;">{{$new->title}}</h1>
     <p class="text-center">
         <span style="font-size:28px">

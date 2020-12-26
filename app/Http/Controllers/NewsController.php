@@ -19,8 +19,12 @@ class NewsController extends Controller
      */
     public function index()
     {
+        $addAccess = false;
+        if (Gate::allows('add-new')) {
+            $addAccess = true;
+        }
         $news = News::all();
-        return view('new.index', ['news' => $news]);
+        return view('new.index',  compact('news','addAccess'));
     }
 
     /**
