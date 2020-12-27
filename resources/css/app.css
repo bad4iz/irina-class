@@ -57621,3 +57621,10 @@ body.modal2 {
 .time {
     background-color: cornsilk;
 }
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

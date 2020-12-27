@@ -2,26 +2,43 @@
 
 @section('content')
     {{--    большая картинка--}}
-    <div data-hcolor="#ff6600" class="  section     no_fontsize         section153    "
+    <div data-hcolor="#ff6600" class="  section     no_fontsize         section153  parallax  "
          style="background-color:#ffffff; background-image:url(/img/class_2.jpg); padding-top:10px; padding-bottom:120px;"
          data-id="1698626" id="b_1698626"><a name="a_1698626"></a>
 
         <div class="back_dark"
              style="opacity:0.61; background:linear-gradient(to bottom, #9f887e 0% ,#212121 100% ) "></div>
         <div class="dark"></div>
-        <div class="noise" style="background-image:url(/img/pattern_2.png); opacity: .3;"></div>
-        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
+
         <div class="section_inner all_border    big   w450h60 ">
             <div class="layer">
-                <div class="title"><p style="text-align:left"><br></p>
-                    <p><span style="font-family:neucha"><span style="font-size:72px">Сайт 2 В&nbsp;класса&nbsp;<span
-                                    style="color:#FFFFFF">школы&nbsp;Нового Века&nbsp;</span></span></span></p>
-                    <p><span style="color:#FF8C00"><strong><span style="font-size:32px"><span
-                                        style="font-family:roboto">_____</span></span></strong></span></p>
+                <div class="title">
+                    <p>
+                        <span style="font-family:neucha">
+                            <span style="font-size:72px">
+                                Сайт 2 В&nbsp;класса&nbsp;
+                                школы&nbsp;Нового Века&nbsp;
+                            </span>
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color:#FF8C00">
+                            <strong>
+                                <span style="font-size:32px">
+                                    <span style="font-family:roboto">_____</span>
+                                </span>
+                            </strong>
+                        </span>
+                    </p>
                     <p><br></p>
                     <p><br></p></div>
-                <div class="sub_title"><p><span style="font-size:20px">Сайт создан для учащихся, родителей, учителей и друзей класса!&nbsp;Здесь вы можете получить необходимую информацию о том, как живет наш класс!&nbsp;Приглашаем к сотрудничеству и обмену информацией. Все новости нашего класса вы можете посмотреть в разделе "Новости"</span>​​​​​​​.&nbsp;
-                    </p></div>
+                <div class="sub_title">
+                    <p>
+                        <span style="font-size:20px">
+                            Сайт создан для учащихся, родителей, учителей и друзей класса!&nbsp;Здесь вы можете получить необходимую информацию о том, как живет наш класс!&nbsp;Приглашаем к сотрудничеству и обмену информацией. Все новости нашего класса вы можете посмотреть в разделе "Новости"
+                        </span>&nbsp;
+                    </p>
+                </div>
 
             </div>
 
@@ -289,7 +306,7 @@
     {{--    // Достижения учеников--}}
 
     {{--    новости класса--}}
-    <div data-hcolor="#ff6600" class="hide_line     img_square     section            transparent_ico section1158  "
+    <div class="hide_line     img_square     section            transparent_ico section1158  "
          style="background-color:#ffffff;  background-image:url(/img/null.png); padding-top:80px; padding-bottom:50px;"
          data-id="1698645" id="b_1698645"><a name="a_1698645"></a>
 
@@ -332,17 +349,17 @@
         </div>
     </div>
 
-    <div data-hcolor="#ff6600" class="hide_line   section              section164  "
-    <div class="section_inner all_border  ">
-        <div class="col w250h45 pcenter  ">
+    <div class="hide_line   section              section164  ">
+        <div class="section_inner all_border  ">
+            <div class="col w250h45 pcenter  ">
 
-            <a href="{{route('new.index')}}" class="btn1 surround  " target="_blank" data-hcolor="#24796b"
-               style="background-color:#2f9688;  border-radius: 0;   box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ;  font-size: 18px;   ">Смотреть
-                все новости</a>
-            <div class="btn_descr"></div>
+                <a href="{{route('new.index')}}" class="btn1 surround  " target="_blank" data-hcolor="#24796b"
+                   style="background-color:#2f9688;  border-radius: 0;   box-shadow: 0 0.25em 0px 0.01em  rgb(17,120,106) ;  font-size: 18px;   ">Смотреть
+                    все новости</a>
+                <div class="btn_descr"></div>
+            </div>
+            <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-    </div>
     </div>
     {{--  //  новости класса--}}
 
@@ -495,14 +512,9 @@
     {{--  //  фотографии--}}
 
     {{--    большая картинка--}}
-    <div data-hcolor="#ff6600" class="hide_line  section          section1306  "
-         style="background-color:#ffffff;  background-image:url(/img/class_1.jpg); height: 912px"
-         data-id="1699155" id="b_1699155"><a name="a_1699155"></a>
-        <div class="back_dark"
-             style="opacity:0.9; background:linear-gradient(to bottom, #ffffff 0% ,#ffffff 100% ) "></div>
+    <div data-hcolor="#ff6600" class="hide_line  section    parallax     section1306  "
+         style=" background-image:url(/img/class_1.jpg); height: 912px"><a name="a_1699155"></a>
 
-        <div class="noise" style="background-image:url(/img/null.png);"></div>
-        <div class="noise_new " style="background-image:url(/img/null.png); opacity:0.5;"></div>
 
     </div>
     {{--  //  большая картинка--}}
