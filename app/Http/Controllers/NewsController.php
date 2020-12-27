@@ -23,7 +23,7 @@ class NewsController extends Controller
         if (Gate::allows('add-new')) {
             $addAccess = true;
         }
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get();
         return view('new.index',  compact('news','addAccess'));
     }
 

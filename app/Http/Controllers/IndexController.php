@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $news = News::latest()->paginate(10);;
+        $news = News::latest()->orderBy('created_at', 'desc')->paginate(10);;
         return view('index', ['news' => $news]);
     }
 }
