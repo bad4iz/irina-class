@@ -433,77 +433,17 @@
             <div class="sub_title"><p><span style="font-size:22px">Жизнь нашего класса в фотографиях</span></p></div>
             <div class="images">
 
+                @foreach ($photosOurClass as $gallery)
                 <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/f307b39eaa11b01972e9fa94e38ac507.jpg">
+                    <img alt="{{$gallery->title}}" src="{{ asset($gallery->preview) }}">
                     <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
+                        <div class="overlay_image_title">{{$gallery->title}}</div>
+                        <div class="overlay_image_descr">{{$gallery->date}}</div>
+                        <a href="{{route('photosOurClass.show', $gallery->id)}}" >подробнее</a>
                     </div>
                 </div>
 
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/bd11f00a0f8a0c30c76819bc9525a84b.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Выступление в детском саду</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/3ecba3df4c107c839c1a05c59c1c166d.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Калейдоскоп талантов</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/d7e39fa30ed765745c84e97fe7ad3b5b.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/a25ea8de08ff2632cbd81ca016af23be.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Выступление в детском саду</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/fd2e4ca2f0b3b124a8f6a150ffee39d2.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Калейдоскоп талантов</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/1466176500d2614f67207eea17cdd3d1.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Спектакль Волк и семеро козлят</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/4084a8c4c11f9a27cb305a0762067d68.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Выступление в детском саду</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
-
-                <div class="image_box img_zoom   image_size_600x450 arr1 ">
-                    <img data-lazy="1" alt="" src="/img/e29ac2b96e0d65d17250944f39d3b6cb.jpg">
-                    <div class="overlay_image_box    " data-link="" data-link-target="">
-                        <div class="overlay_image_title">Калейдоскоп талантов</div>
-                        <div class="overlay_image_descr">26 августа 2019 года</div>
-                    </div>
-                </div>
+                @endforeach
 
                 <div class="clear"></div>
             </div>

@@ -34,6 +34,18 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('admin') || $user->hasRole('superadmin');
         });
 
+        Gate::define('add-photosOurClass', function ($user) {
+            return $user->hasRole('admin') || $user->hasRole('superadmin');
+        });
+
+        Gate::define('delete-photosOurClass', function ($user) {
+            return $user->hasRole('admin') || $user->hasRole('superadmin');
+        });
+
+        Gate::define('change-photosOurClass', function ($user) {
+            return $user->hasRole('admin') || $user->hasRole('superadmin');
+        });
+
         //
     }
 }

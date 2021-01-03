@@ -56,7 +56,7 @@
                 <ul>
                     <li class="level0"><a href="/#anchor0">О нас</a></li>
                     <li class="level0"><a href="{{route('new.index')}}">Новости</a></li>
-                    <li class="level0"><a href="/#anchor2">Галерея</a></li>
+                    <li class="level0"><a href="{{route('photosOurClass.index')}}">Галерея</a></li>
                     <li class="level0"><a href="/#anchor3">Наши достижения</a></li>
                     <li class="level0"><a href="/#anchor4">Расписание</a></li>
                     <li class="level0"><a href="/#anchor5">Контакты</a></li>
