@@ -19,7 +19,7 @@
             <p class="category">заполните поля</p>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('photosOurClass.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="">
                     <label for="file">Добавьте изображение для превью</label>

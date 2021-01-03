@@ -433,7 +433,7 @@
             <div class="sub_title"><p><span style="font-size:22px">Жизнь нашего класса в фотографиях</span></p></div>
             <div class="images">
 
-                @foreach ($photosOurClass as $gallery)
+                @foreach ($galleries as $gallery)
                 <div class="image_box img_zoom   image_size_600x450 arr1 ">
                     <img alt="{{$gallery->title}}" src="{{ asset($gallery->preview) }}">
                     <div class="overlay_image_box    " data-link="" data-link-target="">

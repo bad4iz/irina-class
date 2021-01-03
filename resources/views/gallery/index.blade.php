@@ -13,7 +13,7 @@
                             style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
                             style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></p>
                 @if ($addAccess)
-                <a href="{{route('photosOurClass.create')}}" role="button" type="button" class="btn btn-success">добавить галерею</a>
+                <a href="{{route('gallery.create')}}" role="button" type="button" class="btn btn-success">добавить галерею</a>
                 @endif
                 <p>
                     <span style="font-size:36px"><span style="color:#FF8C00"><strong><span style="font-family:roboto">____</span></strong></span></span>
@@ -21,19 +21,19 @@
 
             <div class="catalog_items count3 s200">
 
-                @foreach ($photosOurClass as $photosOurClass)
+                @foreach ($galleries as $gallery)
                     <div class="card card-blog m-3" style="width: 300px">
                         <div class="card-header card-header-image">
 
-                            <img class="img" src="{{$photosOurClass->preview}}" alt="{{$photosOurClass->title}}">
+                            <img class="img" src="{{$gallery->preview}}" alt="{{$gallery->title}}">
 
                         </div>
                         <div class="card-body">
-                            <h3 class="card-category">{{$photosOurClass->title}}</h3>
+                            <h3 class="card-category">{{$gallery->title}}</h3>
                         </div>
 
                         <div class="card-footer flex-row-reverse">
-                            <a href="{{route('photosOurClass.show', $photosOurClass->id)}}" role="button" type="button"
+                            <a href="{{route('gallery.show', $gallery->id)}}" role="button" type="button"
                                class="btn btn-success">подробнее</a>
                         </div>
                     </div>
