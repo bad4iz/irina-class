@@ -123,6 +123,8 @@ class PhotosOurClassController extends Controller
      */
     public function destroy(PhotosOurClass $photosOurClass)
     {
-        //
+        $photosOurClass->delete();
+
+        return redirect()->route('photosOurClass.index');
     }
 }

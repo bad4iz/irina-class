@@ -34,10 +34,7 @@
             </div>
         </div>
         <div class="card-body">
-
-
             <p class="card-description">
-
                 {{$photosOurClass->description}}
             </p>
         </div>
