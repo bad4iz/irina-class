@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('preview');
-            $table->text('description')->default('')->nullable();
+            $table->text('description')->nullable();
             $table->date('date')->useCurrent();
             $table->timestamps();
         });
