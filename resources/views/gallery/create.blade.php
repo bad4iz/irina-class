@@ -22,7 +22,7 @@
             <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="">
-                    <label for="file">Добавьте изображение для превью</label>
+                    <label for="file">Добавьте обложку для альбома</label>
                     <input id="file" type="file" name="preview">
                 </div>
 

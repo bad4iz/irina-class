@@ -38,5 +38,20 @@
                 {{$gallery->description}}
             </p>
         </div>
+        <div class="row">
+            @foreach ($gallery->photos as $photo)
+                <div class="col-md-4">
+                    <div class="card" >
+                        <img class="card-img-top"
+                             src="{{ asset($photo->image) }}"
+                             alt="{{$photo->data}}">
+                        <div class="card-body">
+                            <p class="card-text">{{$photo->description}}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+
 @endsection

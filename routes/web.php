@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('article', ArticleController::class);
 Route::resource('new', NewsController::class);
 Route::resource('gallery', GalleryController::class);
+Route::resource('photo', PhotoController::class);
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 

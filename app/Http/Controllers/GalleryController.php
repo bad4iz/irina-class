@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -20,7 +19,7 @@ class GalleryController extends Controller
         if (Gate::allows('add-gallery')) {
             $addAccess = true;
         }
-        $galleries = Gallery::all();
+        $galleries = gallery::all();
         return view('gallery.index', compact('galleries','addAccess'));
     }
 
@@ -51,7 +50,7 @@ class GalleryController extends Controller
 
         $preview = $request->file('preview')->store('images',);
 
-        $gallery = Gallery::create([
+        $gallery = gallery::create([
             'title' => request('title'),
             'preview' => $preview,
             'date' => request('date'),
@@ -69,10 +68,10 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show(gallery $gallery)
     {
         $deleteAccess = false;
         $changeAccess = false;
@@ -88,10 +87,10 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit(gallery $gallery)
     {
         $deleteAccess = false;
         $changeAccess = false;
@@ -108,10 +107,10 @@ class GalleryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, gallery $gallery)
     {
         //
     }
@@ -119,13 +118,12 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(gallery $gallery)
     {
-        Storage::delete($gallery->preview);
-        $gallery->delete();
+        $gallery->destr();
 
         return redirect()->route('gallery.index');
     }

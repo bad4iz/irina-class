@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photos;
+use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
-class PhotosController extends Controller
+class PhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +36,36 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'image' => 'image|max:1024',
+            'date' => 'date',
+            'gallery_id' => 'integer',
+        ]);
+
+        $image = $request->file('image')->store('images',);
+
+        $gallery = Photo::create([
+            'image' => $image,
+            'description' => request('description'),
+            'date' => request('date'),
+            'gallery_id' => request('gallery_id'),
+        ]);
+
+        $addAccess = false;
+        if (Gate::allows('change-gallery')) {
+            $addAccess = true;
+        }
+
+        return redirect()->route('gallery.edit', [request('gallery_id')]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Photos  $photos
+     * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photos $photos)
+    public function show(Photo $photo)
     {
         //
     }
@@ -52,10 +73,10 @@ class PhotosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Photos  $photos
+     * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photos $photos)
+    public function edit(Photo $photo)
     {
         //
     }
@@ -64,10 +85,10 @@ class PhotosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Photos  $photos
+     * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photos $photos)
+    public function update(Request $request, Photo $photo)
     {
         //
     }
@@ -75,11 +96,12 @@ class PhotosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Photos  $photos
+     * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Photos $photos)
+    public function destroy(Photo $photo)
     {
-        //
+        $photo->destr();
+        return redirect()->back();
     }
 }

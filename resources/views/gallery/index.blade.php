@@ -34,7 +34,7 @@
 
                         <div class="card-footer flex-row-reverse">
                             <a href="{{route('gallery.show', $gallery->id)}}" role="button" type="button"
-                               class="btn btn-success">подробнее</a>
+                               class="btn btn-success">просмотреть альбом</a>
                         </div>
                     </div>
                 @endforeach

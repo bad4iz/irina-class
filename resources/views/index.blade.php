@@ -439,7 +439,7 @@
                     <div class="overlay_image_box    " data-link="" data-link-target="">
                         <div class="overlay_image_title">{{$gallery->title}}</div>
                         <div class="overlay_image_descr">{{$gallery->date}}</div>
-                        <a href="{{route('photosOurClass.show', $gallery->id)}}" >подробнее</a>
+                        <a href="{{route('gallery.show', $gallery->id)}}" >подробнее</a>
                     </div>
                 </div>
 
