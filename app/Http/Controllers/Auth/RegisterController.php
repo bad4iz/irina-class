@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Auth\VerifyMail;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -64,10 +70,46 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'verify_token' => Str::random(),
+            'status' => User::STATUS_INACTIVE,
         ]);
+
+        Mail::to($user->email)->send(new VerifyMail($user));
+
+        return $user;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect()->route('login')
+            ->with('success', 'Проверьте свою электронную почту и нажмите ссылку для подтверждения.');
+    }
+
+    public function verify( $id,$token = false)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->checkConfirmToken($token)) {
+
+            $user->status = User::STATUS_ACTIVE;
+            $user->email_verified_at = date('Y-m-d g:i:s');;
+            $user->save();
+
+            Auth::loginUsingId($id);
+            return redirect()->route('home');
+        }
+        return abort(404);
     }
 }

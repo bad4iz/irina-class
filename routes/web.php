@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewsController;
@@ -27,3 +28,6 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Auth::routes();
 
 Route::get('/home',  [IndexController::class, 'index'])->name('home');
+
+
+Route::get('/verify/{id}/{token}', [RegisterController::class, 'verify'])->name('register.verify');

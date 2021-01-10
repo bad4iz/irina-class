@@ -2,6 +2,7 @@
 
 namespace App\Mail\Auth;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,10 +12,11 @@ class VerifyMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $user;
+
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param User $user
      */
     public function __construct(User $user)
     {

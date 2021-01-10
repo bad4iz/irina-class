@@ -3,7 +3,6 @@
 namespace App\Models;
 
 
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,15 +12,20 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    //  DELETED - может понадобиться в дальнейшем
+    const STATUS_DELETED = 0;
+    //  INACTIVE - статус будет присваиваться сразу после регистрации
+    const STATUS_INACTIVE = 9;
+    //  ACTIVE - статус будет даваться пользователю подтвердившему свой email
+    const STATUS_ACTIVE = 10;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'verify_token', 'status',
     ];
 
     /**
@@ -57,12 +61,28 @@ class User extends Authenticatable
      * @param mixed ...$roles
      * @return bool
      */
-    public function hasRole(... $roles ) {
+    public function hasRole(...$roles)
+    {
         foreach ($roles as $role) {
             if ($this->roles->contains('slug', $role)) {
                 return true;
             }
         }
         return false;
+    }
+
+    /**
+     * Проверить ключ подтверждения
+     * @param $verify_token
+     * @return bool
+     */
+    public function checkConfirmToken($verify_token): bool
+    {
+        if ($this->verify_token === $verify_token) {
+            return true;
+        }
+
+        return false;
+
     }
 }
