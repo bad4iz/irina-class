@@ -325,7 +325,7 @@
             <div class="catalog_items count3 s200">
 
                 @foreach ($news as $new)
-                    <div class="card card-blog m-3" style="width: 300px">
+                    <div class="card card-blog m-4" style="width: 300px">
                         <div class="card-header card-header-image">
 
                             <img class="img" src="{{$new->preview}}" alt="{{$new->title}}">

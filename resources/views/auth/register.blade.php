@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['activePage' => 'register', ])
 
 @section('content')
 <div class="container">

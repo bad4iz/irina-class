@@ -19,11 +19,11 @@
 
     <!-- CSS Files -->
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet"/>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/sass/app.css') }}" rel="stylesheet">
+
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet"/>
+
 
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
@@ -37,50 +37,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css">
     <link rel="stylesheet" href="http://132245.lp.tobiz.net/css/ion.rangeSlider.min.css" type="text/css">
 
+    <link href="{{ asset('css/sass/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
 
-<body class="{{ $class ?? '' }} editor_false  lang_ru     not_ie">
-<div id="wrapper" style="padding-top: 0px;">
-    <div class="hide_line   section             section116  "
-         style="background-color:#ffffff ;  background-image:url(/img/1920x0/null.png);" data-id="1698630"
-         id="b_1698630"><a name="a_1698630"></a>
+<body class="{{ $class ?? '' }}">
+@include('layouts.navbars.header')
 
+@yield('content')
+@include('layouts.footer')
 
-        <div class="noise" style="background-image:url(/img/null.png);"></div>
-        <div class="section_inner ">
-            <div class="menu-toogler"><i class="fa fa-bars"></i></div>
-            <div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 18px; display: block;"
-                 class="menu1 colorize           hover_menu_border_bottom   ">
-                <ul>
-                    <li class="level0"><a href="/#anchor0">О нас</a></li>
-                    <li class="level0"><a href="{{ route('new.index') }}">Новости</a></li>
-                    <li class="level0"><a href="{{ route('gallery.index') }}">Галерея</a></li>
-                    <li class="level0"><a href="/#anchor3">Наши достижения</a></li>
-                    <li class="level0"><a href="/#anchor4">Расписание</a></li>
-                    <li class="level0"><a href="/#anchor5">Контакты</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-@auth()
-    <!-- The Current User Can Update The Post -->
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-
-        @include('layouts.page_templates.auth')
-        {{--                @include('layouts.page_templates.guest')--}}
-
-    @endauth
-
-
-    @guest()
-        @include('layouts.page_templates.guest')
-    @endguest
-
-</div>
 @stack('js')
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
