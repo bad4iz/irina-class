@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'login', ])
+@extends('adminPanel.layouts.app', ['activePage' => 'login', ])
 
 @section('content')
 

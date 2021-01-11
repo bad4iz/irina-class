@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\GalleryController;
@@ -31,3 +32,6 @@ Route::get('/home',  [IndexController::class, 'index'])->name('home');
 
 
 Route::get('/verify/{id}/{token}', [RegisterController::class, 'verify'])->name('register.verify');
+
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');

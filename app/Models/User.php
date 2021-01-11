@@ -7,10 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Kodeine\Acl\Traits\HasRole;
+
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRole;
 
     //  DELETED - может понадобиться в дальнейшем
     const STATUS_DELETED = 0;
@@ -85,4 +87,24 @@ class User extends Authenticatable
         return false;
 
     }
+
+    /**
+     * возвращает имя статуса
+     */
+    public function statusName(): string
+    {
+        switch ($this->status) {
+            case User::STATUS_DELETED:
+                return 'удален';
+            case User::STATUS_INACTIVE:
+                return 'не подтвердил свой email';
+            case User::STATUS_ACTIVE:
+                return 'подтвердил свой email';
+        }
+    }
+
+    public function news() {
+        return $this->hasMany(News::class);
+    }
+
 }

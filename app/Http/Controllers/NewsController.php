@@ -60,6 +60,7 @@ class NewsController extends Controller
             'attachment-news-trixFields' => request('attachment-news-trixFields'),
             'preview' => $preview,
             'event_date' => request('event_date'),
+            'user_id' => Auth::user()->id,
             'intro' => request('intro'),
         ]);
 
@@ -85,24 +86,39 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\News  $new
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(News $new)
     {
-        //
+        return view('new.edit', compact('new'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\News  $new
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, News $new)
     {
-        //
+        $validatedData = $request->validate([
+            'preview' => 'image|max:1024',
+            'intro' => 'required',
+            'event_date' => 'date',
+            'title' => 'required',
+        ]);
+
+        $new->update([
+            'title' => request('title'),
+            'news-trixFields' => request('news-trixFields'),
+            'attachment-news-trixFields' => request('attachment-news-trixFields'),
+            'event_date' => request('event_date'),
+            'intro' => request('intro'),
+        ]);
+
+        return redirect()->route('admin.index');
     }
 
     /**

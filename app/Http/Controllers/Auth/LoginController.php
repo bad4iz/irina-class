@@ -49,7 +49,7 @@ class LoginController extends Controller
     {
         if ($user->status !== User::STATUS_ACTIVE) {
             $this->guard()->logout();
-            return back()->with('error', 'You need to confirm your account. Please check your email.');
+            return back()->with('error', 'Вам необходимо подтвердить свою учетную запись. Пожалуйста, проверьте свою электронную почту.');
         }
         return redirect()->intended($this->redirectPath());
     }
