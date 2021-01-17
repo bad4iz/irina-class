@@ -65,7 +65,7 @@ class NewsController extends Controller
             'intro' => request('intro'),
         ]);
 
-        return redirect()->route('new.index');
+        return redirect()->route('admin.index');
     }
 
     /**
