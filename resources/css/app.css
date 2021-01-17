@@ -6,12 +6,12 @@ h1 {
     font-family: neucha;
 }
 h2 {
-    @apply text-3xl;
-    font-family: neucha;
+    @apply text-xl;
+    @apply font-semibold;
 }
 h3 {
     @apply text-lg;
-    font-family: neucha;
+    @apply font-medium;
 }
 
 
