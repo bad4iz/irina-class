@@ -3,7 +3,7 @@
 
 h1 {
     @apply text-6xl;
-    font-family: neucha;
+    @apply font-neucha;
 }
 h2 {
     @apply text-xl;
