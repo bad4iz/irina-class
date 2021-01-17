@@ -1,4 +1,20 @@
 @tailwind base;
+
+
+h1 {
+    @apply text-6xl;
+    font-family: neucha;
+}
+h2 {
+    @apply text-3xl;
+    font-family: neucha;
+}
+h3 {
+    @apply text-lg;
+    font-family: neucha;
+}
+
+
 @tailwind components;
 @tailwind utilities;
 
@@ -51,10 +67,6 @@ dfn {
     font-style: italic
 }
 
-h1 {
-    font-size: 2em;
-    margin: .67em 0
-}
 
 mark {
     background: #ff0;
@@ -45832,12 +45844,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 20px 0
 }
 
-.section_inner h1, .section_inner h2, .section_inner h3, .section_inner h4 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: normal;
-    font-size: inherit
-}
+
 
 .section.fixed_top {
     box-shadow: 0 1px 4px 0 #ccc

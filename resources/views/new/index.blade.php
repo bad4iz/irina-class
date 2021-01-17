@@ -6,7 +6,7 @@
     <div>
         <div class="mt-2 container">
             <div class="title text-center">
-                <h1 style="font-size:54px; font-family: neucha;" >Все Новости класса</h1>
+                <h1>Все Новости класса</h1>
                 <p>
                     <span style="font-size:28px">
                         <span style="color:#FF0000">★&nbsp;</span>
@@ -35,25 +35,8 @@
 
             <div class="mt-12 flex-wrap flex">
 
-                @foreach ($news as $new)
-                    <div class="card card-blog m-4" style="max-width: 300px">
-                        <div class="card-header card-header-image">
-
-                            <img class="img" src="{{$new->preview}}" alt="{{$new->title}}">
-
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-category">{{$new->title}}</h3>
-                            <p class="card-description">
-                                {{$new->intro}}
-                            </p>
-                        </div>
-
-                        <div class="card-footer flex-row-reverse">
-                            <a href="{{route('new.show', $new->id)}}" role="button" type="button"
-                               class="btn btn-success">Читать далее</a>
-                        </div>
-                    </div>
+                @foreach ($news as $oneNews)
+                    <x-news :news="$oneNews"/>
                 @endforeach
 
             </div>

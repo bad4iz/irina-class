@@ -324,25 +324,8 @@
                 </p></div>
             <div class="catalog_items count3 s200">
 
-                @foreach ($news as $new)
-                    <div class="card card-blog m-4" style="width: 300px">
-                        <div class="card-header card-header-image">
-
-                            <img class="img" src="{{$new->preview}}" alt="{{$new->title}}">
-
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-category">{{$new->title}}</h3>
-                            <p class="card-description">
-                                {{$new->intro}}
-                            </p>
-
-                        </div>
-                        <div class="card-footer flex-row-reverse">
-                            <a href="{{route('new.show', $new->id)}}" role="button" type="button"
-                               class="btn btn-success">Читать далее</a>
-                        </div>
-                    </div>
+                @foreach ($news as $oneNews)
+                    <x-news :news="$oneNews"/>
                 @endforeach
 
             </div>
