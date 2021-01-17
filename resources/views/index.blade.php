@@ -52,7 +52,7 @@
                         style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
                         style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></div>
 
-            <h2>Расписание занятий и кружков</h2>
+            <h2  class="text-center">Расписание занятий и кружков</h2>
 
             <div class="table_wrap table_wrap_0" style="overflow-y: scroll;overflow-x: visible; padding-top: 25px">
                 <div
