@@ -19,3 +19,11 @@ ln -s public public_html
 
  php7.3 artisan migrate
 ```
+
+
+## для доступа к node.js
+```$xslt
+заходим в докер
+ssh localhost -p222
+```
+
