@@ -13,14 +13,8 @@
         <div class="section_inner all_border    big   w450h60 ">
             <div class="layer">
                 <div class="title">
-                    <p>
-                        <span style="font-family:neucha">
-                            <span style="font-size:72px">
-                                Сайт 2 В&nbsp;класса&nbsp;
-                                школы&nbsp;Нового Века&nbsp;
-                            </span>
-                        </span>
-                    </p>
+                    <h1>Сайт 2 В&nbsp;класса&nbsp;
+                        школы&nbsp;Нового Века&nbsp;</h1>
                     <p>
                         <span style="color:#FF8C00">
                             <strong>
@@ -57,8 +51,15 @@
                         style="color:#FF8C00">★&nbsp;</span><span style="color:#FFD700">★&nbsp;</span><span
                         style="color:#008000">★&nbsp;</span><span style="color:#00FFFF">★&nbsp;</span><span
                         style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></div>
-            <div class="sub_title this"><span style="color:#222222"><span style="font-size:54px"><span
-                            style="font-family:neucha">Расписание занятий и кружков</span></span></span></div>
+
+            <h2>Расписание занятий и кружков</h2>
+            <div class="sub_title this">
+                <span style="color:#222222">
+                    <span style="font-size:54px">
+                        <span style="font-family:neucha">Расписание занятий и кружков</span>
+                    </span>
+                </span>
+            </div>
             <div class="table_wrap table_wrap_0" style="overflow-y: scroll;overflow-x: visible; padding-top: 25px">
                 <div
                     style="display: flex; display: -webkit-flex; display: -webkit-box; position: absolute; top: 0px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); align-items: center;">

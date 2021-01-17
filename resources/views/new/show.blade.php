@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', ])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => $new->title])
 
 @section('content')
     <style>
@@ -9,8 +9,8 @@
             text-align: center;
         }
     </style>
-    <h1 style="color:#222222; font-size:54px; font-family:neucha; text-align: center;">{{$new->title}}</h1>
-    <p class="text-center">
+    <h1 class="text-center mt-5">{{$new->title}}</h1>
+    <p class="text-center m-4">
         <span style="font-size:28px">
             <span style="color:#FF0000">★&nbsp;</span>
             <span style="color:#FF8C00">★&nbsp;</span>
@@ -21,7 +21,7 @@
             <span style="color:#4B0082">★</span>
         </span>
     </p>
-    <div class="card card-blog" style="max-width: 900px; margin: 50px auto">
+    <div class="card card-blog mx-auto mt-14" style="max-width: 900px; ">
         <div class="card-header card-header-image">
 
             <img class="img" src=" {{ asset($new->preview) }}">

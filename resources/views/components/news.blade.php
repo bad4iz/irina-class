@@ -5,7 +5,7 @@
 
     </div>
     <div class="card-body">
-        <h2 class="card-category">{{$news->title}}</h2>
+        <h3 class="card-category">{{$news->title}}</h3>
         <p class="card-description">
             {{$news->intro}}
         </p>

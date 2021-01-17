@@ -2,14 +2,21 @@
 
 
 h1 {
-    @apply text-6xl;
+    @apply text-7xl;
     @apply font-neucha;
 }
 h2 {
-    @apply text-xl;
+    @apply text-5xl;
+    @apply font-neucha;
+    @apply font-bold;
+}
+
+h3 {
+    @apply text-2xl;
     @apply font-semibold;
 }
-h3 {
+
+h4 {
     @apply text-lg;
     @apply font-medium;
 }
