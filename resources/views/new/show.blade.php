@@ -1,5 +1,15 @@
 @extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => $new->title])
 
+@section('meta')
+    <meta property="og:title" content="The Rock" />
+    <meta property="og:type" content="video.movie" />
+    <meta property="og:url" content="//www.imdb.com/title/tt0117500/" />
+    <meta property="og:image" content="//ia.media-imdb.com/images/rock.jpg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:article:author" content="//ia.media-imdb.com/images/rock.jpg" />
+@endsection
+
 @section('content')
     <style>
         img{

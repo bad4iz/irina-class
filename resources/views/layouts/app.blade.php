@@ -40,6 +40,7 @@
     <link href="{{ asset('css/sass/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    @yield('meta')
 </head>
 
 
