@@ -53,13 +53,7 @@
                         style="color:#0000CD">★&nbsp;</span><span style="color:#4B0082">★</span></span></div>
 
             <h2>Расписание занятий и кружков</h2>
-            <div class="sub_title this">
-                <span style="color:#222222">
-                    <span style="font-size:54px">
-                        <span style="font-family:neucha">Расписание занятий и кружков</span>
-                    </span>
-                </span>
-            </div>
+
             <div class="table_wrap table_wrap_0" style="overflow-y: scroll;overflow-x: visible; padding-top: 25px">
                 <div
                     style="display: flex; display: -webkit-flex; display: -webkit-box; position: absolute; top: 0px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); align-items: center;">
