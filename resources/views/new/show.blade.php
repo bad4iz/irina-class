@@ -3,8 +3,10 @@
 @section('content')
     <style>
         img{
-            width: 800px;
-            height: 100%;
+         margin: 0 auto;
+        }
+        figcaption {
+            text-align: center;
         }
     </style>
     <h1 style="color:#222222; font-size:54px; font-family:neucha; text-align: center;">{{$new->title}}</h1>
