@@ -14,10 +14,22 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item{{ $activePage == 'index' ? ' active' : '' }}">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="material-icons">home</i>
+                    <p>На главную</p>
+                </a>
+            </li>
+            <li class="nav-item {{ $activePage == 'index' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.index') }}">
                     <i class="material-icons">table_rows</i>
                     <p>Новости</p>
+                </a>
+            </li>
+            <li class="nav-item {{ $activePage == 'gallery' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.gallery') }}">
+                    <i class="material-icons">wallpaper</i>
+                    <p>Галлерея</p>
                 </a>
             </li>
             <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">

@@ -103,8 +103,22 @@ class User extends Authenticatable
         }
     }
 
-    public function news() {
+    /**
+     * связь юзера с его новостями
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function news(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(News::class);
+    }
+
+    /**
+     * связь юзера с его галереями
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function galleries(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Gallery::class);
     }
 
 }

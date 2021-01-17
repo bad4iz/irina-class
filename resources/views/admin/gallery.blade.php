@@ -1,4 +1,4 @@
-@extends('admin.app', ['activePage' => 'index', ])
+@extends('admin.app', ['activePage' => 'gallery', ])
 
 @section('content')
     <div class="content">
@@ -8,22 +8,22 @@
                     <div class="card">
                         <div class="card-header card-header flex justify-content-between">
                             <div>
-                                <h4 class="card-title ">Новости класса</h4>
-                                <p class="card-category">здесь преведены новости класса которые вы добавляли</p>
+                                <h4 class="card-title ">Галерея класса</h4>
+                                <p class="card-category">здесь показаны галереи класса которые вы добавили</p>
                             </div>
-                            <a href="{{route('new.create')}}" role="button" type="button" class="btn btn-success">
-                                добавить новость
+                            <a href="{{route('gallery.create')}}" role="button" type="button" class="btn btn-success">
+                                добавить галерею
                             </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Заголовок</th>
                                     <th>Дата события</th>
                                     <th>Превью</th>
-                                    <th>Интро</th>
+                                    <th>Описание</th>
                                     <th>Автор</th>
                                     <th>Разрешено к публикации</th>
                                     <th>Дата создания</th>
@@ -31,31 +31,31 @@
                                     <th></th>
                                     </thead>
                                     <tbody>
-                                    @foreach ($news as $new)
+                                    @foreach ($galleries as $gallery)
                                         <tr>
                                             <td>
-                                                {{$new->id}}
+                                                {{$gallery->id}}
                                             </td>
                                             <td>
-                                                {{$new->title}}
+                                                {{$gallery->title}}
                                             </td>
                                             <td>
-                                                {{$new->event_date}}
+                                                {{$gallery->date}}
                                             </td>
                                             <td>
-                                                <img class="img" style="max-width: 50px" src="{{ asset($new->preview) }}" alt="{{$new->title}}">
+                                                <img class="img" style="max-width: 50px" src="{{ asset($gallery->preview) }}" alt="{{$gallery->title}}">
                                             </td>
                                             <td>
-                                                {{$new->intro}}
+                                                {{$gallery->description}}
                                             </td>
                                             <td>
-                                                {{ $new->author->name}}
+                                                {{ $gallery->author->name}}
                                             </td>
                                             <td>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" disabled type="checkbox"
-                                                               checked="{{$new->is_moderation}}">
+                                                               checked="{{$gallery->is_moderation}}">
                                                         <span class="form-check-sign">
                                                           <span class="check"></span>
                                                         </span>
@@ -64,13 +64,13 @@
 
                                             </td>
                                             <td>
-                                                {{$new->created_at}}
+                                                {{$gallery->created_at}}
                                             </td>
                                             <td>
-                                                {{$new->updated_at }}
+                                                {{$gallery->updated_at }}
                                             </td>
                                             <td>
-                                                <a href="{{route('new.edit', $new)}}" role="button" type="button"
+                                                <a href="{{route('gallery.edit', $gallery)}}" role="button" type="button"
                                                    class="btn btn-success">
                                                     <i class="material-icons">edit</i>
                                                 </a>

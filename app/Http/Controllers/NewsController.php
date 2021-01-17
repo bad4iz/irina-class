@@ -60,6 +60,7 @@ class NewsController extends Controller
             'attachment-news-trixFields' => request('attachment-news-trixFields'),
             'preview' => $preview,
             'event_date' => request('event_date'),
+            'is_moderation' => true, // пока так . потом когда надо будет новости админить .. удалить
             'user_id' => Auth::user()->id,
             'intro' => request('intro'),
         ]);

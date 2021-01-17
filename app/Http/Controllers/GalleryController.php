@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class GalleryController extends Controller
@@ -54,6 +55,8 @@ class GalleryController extends Controller
             'title' => request('title'),
             'preview' => $preview,
             'date' => request('date'),
+            'is_moderation' => true, // пока так . потом когда надо будет новости админить .. удалить
+            'user_id' => Auth::user()->id,
             'description' => request('description'),
         ]);
 

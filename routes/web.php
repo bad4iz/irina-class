@@ -35,3 +35,4 @@ Route::get('/verify/{id}/{token}', [RegisterController::class, 'verify'])->name(
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/gallery', [AdminController::class, 'gallery'])->name('admin.gallery');
