@@ -1,12 +1,12 @@
 @component('mail::message')
-    # Email Confirmation
+# Подтверждение регистрации на сайте {{ config('app.name') }}
 
-    Please refer to the following link:
+Для подтверждения регистрации пожалуйста, перейдите по следующей ссылке::
 
-    @component('mail::button', ['url' => route('register.verify', ['id'=> $user->id, 'token' => $user->verify_token])])
-        Verify Email
-    @endcomponent
+@component('mail::button', ['url' => route('register.verify', ['id'=> $user->id, 'token' => $user->verify_token])])
+    Подтвердить Email
+@endcomponent
 
-    Thanks,<br>
-    {{ config('app.name') }}
+Спасибо от {{ config('app.name') }}
+
 @endcomponent
