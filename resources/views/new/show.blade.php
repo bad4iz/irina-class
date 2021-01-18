@@ -7,7 +7,7 @@
     <meta property="og:image" content="{{ asset($new->preview) }}"/>
     <meta property="og:image:width" content="300"/>
     <meta property="og:image:height" content="300"/>
-    <meta property="og:article:author" content="{{ asset($new->author) }}"/>
+    <meta property="og:article:author" content="{{ asset($new->author->name) }}"/>
 @endsection
 
 @section('content')
