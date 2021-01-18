@@ -4,7 +4,7 @@
     <meta property="og:title" content="{{$new->title}}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{config('app.url')}}/new/{{$new->id}}"/>
-    <meta property="og:image" content="config('app.url')}}/{{ $new->preview }}"/>
+    <meta property="og:image" content="{{config('app.url')}}/{{ $new->preview }}"/>
     <meta property="og:image:width" content="300"/>
     <meta property="og:image:height" content="300"/>
     <meta property="og:article:author" content="{{ $new->author->name }}"/>
