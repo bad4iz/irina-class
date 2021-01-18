@@ -34,5 +34,5 @@
 </div>
 <script>
     document.getElementById("viber_share-{{$news->id}}")
-        .setAttribute('href', 'viber://forward?text=' + encodeURIComponent('{{$news->intro}}' + ' ' + '{{ route('new.show', $news->id) }}' ));
+        .setAttribute('href', 'viber://forward?text=' + encodeURIComponent('{{$news->intro}}' + ' ' + '{{ config('app.url') }}/new/{{$news->id}}' ));
 </script>

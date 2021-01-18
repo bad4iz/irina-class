@@ -3,7 +3,7 @@
 @section('meta')
     <meta property="og:title" content="{{$new->title}}"/>
     <meta property="og:type" content="article"/>
-        <meta property="og:url" content="{{config('app.url')}}/new/{{$new->id}}" />
+    <meta property="og:url" content="{{config('app.url')}}/new/{{$new->id}}"/>
     <meta property="og:image" content="{{ asset($new->preview) }}"/>
     <meta property="og:image:width" content="300"/>
     <meta property="og:image:height" content="300"/>
@@ -20,9 +20,10 @@
             text-align: center;
         }
     </style>
-    <h1 class="text-center mt-5">{{$new->title}}   <a id="viber_share-{{$new->id}}" role="button" type="button"
-                                                      class="btn btn-social btn-just-icon btn-round"><img src="{{asset('img/thumb_icon_purple_normal.png')}}"
-                                                                                                          alt="" title="поделиться новостью в вибере"></a></h1>
+    <h1 class="text-center mt-5">{{$new->title}} <a id="viber_share-{{$new->id}}" role="button" type="button"
+                                                    class="btn btn-social btn-just-icon btn-round"><img
+                src="{{asset('img/thumb_icon_purple_normal.png')}}"
+                alt="" title="поделиться новостью в вибере"></a></h1>
     <p class="text-center m-4">
         <span style="font-size:28px">
             <span style="color:#FF0000">★&nbsp;</span>
@@ -64,7 +65,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <a id="viber_share-{{$new->id}}" role="button" type="button"
+            <a id="viber_share-1-{{$new->id}}" role="button" type="button"
                class="btn btn-social btn-just-icon btn-round"><img src="{{asset('img/thumb_icon_purple_normal.png')}}"
                                                                    alt="" title="поделиться новостью в вибере"></a>
         </div>
@@ -76,7 +77,9 @@
     {{--    </div>--}}
     <script>
         document.getElementById("viber_share-{{$new->id}}")
-            .setAttribute('href', 'viber://forward?text=' + encodeURIComponent('{{$new->intro}}' + ' ' + '{{ route('new.show', $new->id) }}'));
+            .setAttribute('href', 'viber://forward?text=' + encodeURIComponent('{{$new->intro}}' + ' ' + '{{ config('app.url') }}/new/{{$new->id}}'));
+        document.getElementById("viber_share-1-{{$new->id}}")
+            .setAttribute('href', 'viber://forward?text=' + encodeURIComponent('{{$new->intro}}' + ' ' + '{{ config('app.url') }}/new/{{$new->id}}'));
     </script>
 
 @endsection
