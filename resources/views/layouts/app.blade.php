@@ -9,6 +9,8 @@
     <meta name="Keywords"
           content="2 В, школы Нового Века, школа Нового Века, для детей, школа, шурова гора, новый век, портал школы Нового века">
 
+    @yield('meta')
+
     <title>{{ isset($title) ? $title :  config('app.name', 'Сайт 2 В класса школы Нового Века') }}</title>
 
     <!-- Fonts and icons -->
@@ -40,7 +42,6 @@
     <link href="{{ asset('css/sass/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    @yield('meta')
 </head>
 
 

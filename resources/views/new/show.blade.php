@@ -3,11 +3,11 @@
 @section('meta')
     <meta property="og:title" content="{{$new->title}}"/>
     <meta property="og:type" content="article"/>
-    {{--    <meta property="og:url" content="//www.imdb.com/title/tt0117500/" />--}}
+        <meta property="og:url" content="{{config('app.url')}}/new/{{$new->id}}" />
     <meta property="og:image" content="{{ asset($new->preview) }}"/>
     <meta property="og:image:width" content="300"/>
     <meta property="og:image:height" content="300"/>
-    <meta property="og:article:author" content="{{ asset($new->author->name) }}"/>
+    <meta property="og:article:author" content="{{ $new->author->name }}"/>
 @endsection
 
 @section('content')
