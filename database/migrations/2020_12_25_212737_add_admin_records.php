@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AddAdminRecords extends Migration
@@ -14,45 +15,39 @@ class AddAdminRecords extends Migration
     public function up()
     {
         $sa_user_id = DB::table('users')->insertGetId([
-            'id' => 1,
             'name' => 'SuperAdmin',
             'email' => 'superadmin@bad4iz.ru',
             'password' => bcrypt('secret2vs'),
 //            'status' => 1,
         ]);
 
-        $sa_group_id = DB::table('roles')->insertGetId([
-            'id' => 1,
+        $sa_role_id = DB::table('roles')->insertGetId([
             'name' => 'СуперАдминистратор',
             'slug' => 'superadmin',
         ]);
 
         DB::table('role_user')->insertGetId([
-            'id' => 1,
-            'role_id' => 1,
-            'user_id' => 1,
+            'role_id' => $sa_role_id,
+            'user_id' => $sa_user_id,
         ]);
 //        dddddddddddddddddddd
 
 
-        $sa_user_id = DB::table('users')->insertGetId([
-            'id' => 2,
+        $a_user_id = DB::table('users')->insertGetId([
             'name' => 'admin',
             'email' => 'admin@bad4iz.ru',
             'password' => bcrypt('secret2v'),
 //            'status' => 1,
         ]);
 
-        $sa_group_id = DB::table('roles')->insertGetId([
-            'id' => 2,
+        $a_role_id = DB::table('roles')->insertGetId([
             'name' => 'Администратор',
             'slug' => 'admin',
         ]);
 
         DB::table('role_user')->insertGetId([
-            'id' => 2,
-            'role_id' => 2,
-            'user_id' => 2,
+            'role_id' => $a_role_id,
+            'user_id' => $a_user_id,
         ]);
 
     }

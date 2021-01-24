@@ -10,6 +10,7 @@ class IndexController extends Controller
     public function index()
     {
         $news = News::latest()->orderBy('created_at', 'desc')->paginate(10);;
+
         $galleries = Gallery::latest()->orderBy('created_at', 'desc')->paginate(9);;
         return view('index', compact('news', 'galleries'  ));
     }
